@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -28,11 +29,12 @@ namespace api.Migrations
                 name: "Book",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Year = table.Column<int>(type: "integer", nullable: false),
                     Rating = table.Column<decimal>(type: "numeric", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
+                    Isbn = table.Column<string>(type: "text", nullable: false),
+                    Editorial = table.Column<string>(type: "text", nullable: false),
                     Summary = table.Column<string>(type: "text", nullable: false),
                     Cover = table.Column<string>(type: "text", nullable: false),
                     DowloadLink = table.Column<string>(type: "text", nullable: false),
@@ -62,7 +64,7 @@ namespace api.Migrations
                 columns: table => new
                 {
                     AuthorsId = table.Column<int>(type: "integer", nullable: false),
-                    BooksId = table.Column<int>(type: "integer", nullable: false)
+                    BooksId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,7 +87,7 @@ namespace api.Migrations
                 name: "BookGenre",
                 columns: table => new
                 {
-                    BooksId = table.Column<int>(type: "integer", nullable: false),
+                    BooksId = table.Column<Guid>(type: "uuid", nullable: false),
                     GenresId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
