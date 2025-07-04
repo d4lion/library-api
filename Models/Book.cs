@@ -1,17 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace api.Models
 {
     public class Book
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int Year { get; set; }
         public decimal Rating { get; set; }
         public string Title { get; set; } = string.Empty;
-        public ICollection<Author> Authors { get; set; } = [];
+        public string Isbn { get; set; } = string.Empty;
+        public string Editorial { get; set; } = string.Empty; 
+         public ICollection<Author> Authors { get; set; } = [];
         public ICollection<Genre> Genres { get; set; } = [];
         public string Summary { get; set; } = string.Empty;
         public string Cover { get; set; } = string.Empty;

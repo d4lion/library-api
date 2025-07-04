@@ -10,8 +10,10 @@ namespace api.Mappers
             return new BookDto
             {
                 Id = bookModel.Id,
+                Isbn = bookModel.Isbn,
                 Title = bookModel.Title,
                 Year = bookModel.Year,
+                Editorial = bookModel.Editorial,
                 Summary = bookModel.Summary,
                 Rating = bookModel.Rating,
                 PdfLink = bookModel.PdfLink,

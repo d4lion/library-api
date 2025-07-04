@@ -18,7 +18,7 @@ namespace api.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAll([FromQuery] int? id)
+        public IActionResult GetAll([FromQuery] Guid? id)
         {
             if (id.HasValue)
             {
@@ -51,7 +51,7 @@ namespace api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public IActionResult GetById([FromRoute] Guid id)
         {
             var book = _context.Book
             .Include(b => b.Authors)

@@ -4,9 +4,10 @@ namespace api.Dtos
 {
     public class BookSummaryDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
-
+        public string Isbn { get; set; } = string.Empty;
+        public string Editorial { get; set; } = string.Empty;
         public decimal Rating { get; set; }
         public string Cover { get; set; } = string.Empty;
         public string DowloadLink { get; set; } = string.Empty;
